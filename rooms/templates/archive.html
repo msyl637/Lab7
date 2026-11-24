@@ -8,6 +8,18 @@
 
 </head>
 <body class="archive">
+    <div class="header">
+        <div class="auth-links">
+    {% if user.is_authenticated %}
+        <span>Вы вошли как <strong>{{ user.username }}</strong></span>
+        <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+        <a href="{% url 'register' %}">Регистрация</a>
+        <a href="{% url 'login' %}">Войти</a>
+    {% endif %}
+</div>
+
+    </div>
     <h1>Все номера</h1>
 <p class="article-back">
     <a href="{% url 'create_room' %}">+ Добавить номер</a>

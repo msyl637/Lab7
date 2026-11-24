@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Гостиница — вход</title>
+    <link rel="stylesheet" href="{% static 'css/room.css' %}">
+</head>
+<body class="article">
+    <div class="article-content">
+        <h1>Вход</h1>
+
+        <form method="POST" class="create-form">
+            {% csrf_token %}
+
+            <label for="username">Логин</label>
+            <input type="text" id="username" name="username"
+                   value="{{ form.username|default:'' }}">
+
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password">
+
+            <input type="submit" value="Войти">
+
+            {% if form.errors %}
+                <p class="form-error">{{ form.errors }}</p>
+            {% endif %}
+        </form>
+
+        <p class="article-back">
+            <a href="{% url 'register' %}">Нет аккаунта? Зарегистрироваться</a>
+        </p>
+    </div>
+</body>
+</html>

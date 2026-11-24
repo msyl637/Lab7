@@ -9,6 +9,16 @@
 <body class="article">
     <div class="header">
         <img src="{% static 'img/logo.png' %}" alt="Логотип гостиницы">
+        <div class="auth-links">
+    {% if user.is_authenticated %}
+        <span>Вы вошли как <strong>{{ user.username }}</strong></span>
+        <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+        <a href="{% url 'register' %}">Регистрация</a>
+        <a href="{% url 'login' %}">Войти</a>
+    {% endif %}
+</div>
+
     </div>
 
     <div class="article-content">
