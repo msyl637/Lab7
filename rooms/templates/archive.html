@@ -38,9 +38,12 @@
                 комфортность: {{ post.get_comfort_display }},
                 цена: {{ post.price }} руб./место/сутки
             </p>
+            <button class="fold-button">свернуть</button>
         </div>
     {% empty %}
         <p>Пока нет ни одного номера.</p>
     {% endfor %}
+<script src="{% static 'js/fold-post.js' %}"></script>
+    <script src="{% static 'js/helloworld.js' %}"></script>
 </body>
 </html>
